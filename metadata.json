@@ -1,0 +1,6 @@
+{
+  "name": "KitchenOps",
+  "description": "A premium SaaS-grade restaurant management suite designed to optimize inventory levels, eliminate food waste, track strict dish-costing metrics, and maximize kitchen profitability.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
