@@ -63,9 +63,9 @@ export default function Sidebar({
           </div>
           <div>
             <h1 className="font-sans font-bold text-lg tracking-tight flex items-center gap-1">
-              KitchenOps <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400">v1.1</span>
+              HotelDashboard <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400">v1.1</span>
             </h1>
-            <p className="text-[11px] text-neutral-400 font-sans">Restaurant SaaS Suite</p>
+            <p className="text-[11px] text-neutral-400 font-sans">Hotel Dashboard Suite</p>
           </div>
         </div>
         

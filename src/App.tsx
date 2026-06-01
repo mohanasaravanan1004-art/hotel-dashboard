@@ -363,7 +363,7 @@ export default function App() {
       case 'wastage': return 'Asset write-offs';
       case 'analytics': return 'Reports & API blueprints';
       case 'notifications': return 'Automation Notification Center';
-      default: return 'KitchenOps';
+      default: return 'HotelDashboard';
     }
   };
 
@@ -395,7 +395,7 @@ export default function App() {
           {/* Breadcrumb navigator */}
           <div className="flex items-center gap-1.5 font-sans">
             <span className="text-[11px] text-neutral-400 font-medium tracking-wide flex items-center gap-1">
-              <Home className="h-3 w-3" /> KitchenOps Hub
+              <Home className="h-3 w-3" /> HotelDashboard Hub
             </span>
             <ChevronRight className="h-3 w-3 text-neutral-500" />
             <span className="text-xs font-bold text-neutral-800 dark:text-white truncate max-w-xs">{currentTabName()}</span>

@@ -130,7 +130,7 @@ export default function Reports({
             <div className={`p-5 rounded-xl border ${
               darkMode ? 'bg-[#111318] border-white/5' : 'bg-white border-neutral-200'
             }`}>
-              <h3 className="font-bold text-base mb-1">KitchenOps Audit Ledger Downloads</h3>
+              <h3 className="font-bold text-base mb-1">HotelDashboard Audit Ledger Downloads</h3>
               <p className="text-xs text-neutral-450 mb-4">Export raw data logs to spreadsheet files instantly.</p>
  
               <div className="space-y-3 text-xs">
@@ -188,7 +188,7 @@ export default function Reports({
               {/* Feedbacks */}
               {downloadSuccessType && (
                 <div className="mt-4 p-2 px-3 text-[11px] rounded bg-green-500/10 border border-green-500/20 text-green-500 flex items-center gap-2 font-mono justify-center animate-bounce">
-                  <CheckCircle className="h-4 w-4" /> Successfully generated and exported <strong>KitchenOps_{downloadSuccessType}_report.csv</strong>
+                  <CheckCircle className="h-4 w-4" /> Successfully generated and exported <strong>HotelDashboard_{downloadSuccessType}_report.csv</strong>
                 </div>
               )}
             </div>
