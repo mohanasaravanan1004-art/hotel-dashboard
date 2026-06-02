@@ -38,7 +38,7 @@ export default function App() {
   
   // 1. Core State Managers (Attempt loading from localStorage first, or fall back to mockData templates)
   const [categories, setCategories] = useState<Category[]>(() => {
-    const saved = localStorage.getItem('kitchenops_categories');
+    const saved = localStorage.getItem('hoteldashboard_categories');
     if (!saved) return INITIAL_CATEGORIES;
     try {
       const parsed = JSON.parse(saved) as Category[];
@@ -55,7 +55,7 @@ export default function App() {
   });
 
   const [suppliers, setSuppliers] = useState<Supplier[]>(() => {
-    const saved = localStorage.getItem('kitchenops_suppliers');
+    const saved = localStorage.getItem('hoteldashboard_suppliers');
     if (!saved) return INITIAL_SUPPLIERS;
     try {
       const parsed = JSON.parse(saved) as Supplier[];
@@ -72,7 +72,7 @@ export default function App() {
   });
 
   const [inventory, setInventory] = useState<InventoryItem[]>(() => {
-    const saved = localStorage.getItem('kitchenops_inventory');
+    const saved = localStorage.getItem('hoteldashboard_inventory');
     if (!saved) return INITIAL_INVENTORY;
     try {
       const parsed = JSON.parse(saved) as InventoryItem[];
@@ -89,7 +89,7 @@ export default function App() {
   });
 
   const [purchases, setPurchases] = useState<PurchaseLog[]>(() => {
-    const saved = localStorage.getItem('kitchenops_purchases');
+    const saved = localStorage.getItem('hoteldashboard_purchases');
     if (!saved) return INITIAL_PURCHASES;
     try {
       const parsed = JSON.parse(saved) as PurchaseLog[];
@@ -106,7 +106,7 @@ export default function App() {
   });
 
   const [recipes, setRecipes] = useState<Recipe[]>(() => {
-    const saved = localStorage.getItem('kitchenops_recipes');
+    const saved = localStorage.getItem('hoteldashboard_recipes');
     if (!saved) return INITIAL_RECIPES;
     try {
       const parsed = JSON.parse(saved) as Recipe[];
@@ -123,7 +123,7 @@ export default function App() {
   });
 
   const [consumption, setConsumption] = useState<ConsumptionLog[]>(() => {
-    const saved = localStorage.getItem('kitchenops_consumption');
+    const saved = localStorage.getItem('hoteldashboard_consumption');
     if (!saved) return INITIAL_CONSUMPTION;
     try {
       const parsed = JSON.parse(saved) as ConsumptionLog[];
@@ -140,7 +140,7 @@ export default function App() {
   });
 
   const [wastage, setWastage] = useState<WastageLog[]>(() => {
-    const saved = localStorage.getItem('kitchenops_wastage');
+    const saved = localStorage.getItem('hoteldashboard_wastage');
     if (!saved) return INITIAL_WASTAGE;
     try {
       const parsed = JSON.parse(saved) as WastageLog[];
@@ -157,7 +157,7 @@ export default function App() {
   });
 
   const [notifications, setNotifications] = useState<AppNotification[]>(() => {
-    const saved = localStorage.getItem('kitchenops_notifications');
+    const saved = localStorage.getItem('hoteldashboard_notifications');
     if (!saved) return INITIAL_NOTIFICATIONS;
     try {
       const parsed = JSON.parse(saved) as AppNotification[];
@@ -175,7 +175,7 @@ export default function App() {
 
   // Theme & Identity configurations
   const [darkMode, setDarkMode] = useState<boolean>(() => {
-    const saved = localStorage.getItem('kitchenops_darkMode');
+    const saved = localStorage.getItem('hoteldashboard_darkMode');
     return saved ? saved === 'true' : true; // Default to eye-safe dark mode
   });
 
@@ -184,39 +184,39 @@ export default function App() {
 
   // 2. Synchronize states with localStorage hooks
   useEffect(() => {
-    localStorage.setItem('kitchenops_categories', JSON.stringify(categories));
+    localStorage.setItem('hoteldashboard_categories', JSON.stringify(categories));
   }, [categories]);
 
   useEffect(() => {
-    localStorage.setItem('kitchenops_suppliers', JSON.stringify(suppliers));
+    localStorage.setItem('hoteldashboard_suppliers', JSON.stringify(suppliers));
   }, [suppliers]);
 
   useEffect(() => {
-    localStorage.setItem('kitchenops_inventory', JSON.stringify(inventory));
+    localStorage.setItem('hoteldashboard_inventory', JSON.stringify(inventory));
   }, [inventory]);
 
   useEffect(() => {
-    localStorage.setItem('kitchenops_purchases', JSON.stringify(purchases));
+    localStorage.setItem('hoteldashboard_purchases', JSON.stringify(purchases));
   }, [purchases]);
 
   useEffect(() => {
-    localStorage.setItem('kitchenops_recipes', JSON.stringify(recipes));
+    localStorage.setItem('hoteldashboard_recipes', JSON.stringify(recipes));
   }, [recipes]);
 
   useEffect(() => {
-    localStorage.setItem('kitchenops_consumption', JSON.stringify(consumption));
+    localStorage.setItem('hoteldashboard_consumption', JSON.stringify(consumption));
   }, [consumption]);
 
   useEffect(() => {
-    localStorage.setItem('kitchenops_wastage', JSON.stringify(wastage));
+    localStorage.setItem('hoteldashboard_wastage', JSON.stringify(wastage));
   }, [wastage]);
 
   useEffect(() => {
-    localStorage.setItem('kitchenops_notifications', JSON.stringify(notifications));
+    localStorage.setItem('hoteldashboard_notifications', JSON.stringify(notifications));
   }, [notifications]);
 
   useEffect(() => {
-    localStorage.setItem('kitchenops_darkMode', String(darkMode));
+    localStorage.setItem('hoteldashboard_darkMode', String(darkMode));
     // Set document theme helper for transitions
     if (darkMode) {
       document.documentElement.classList.add('dark');
