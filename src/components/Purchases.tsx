@@ -8,7 +8,7 @@ import {
   Clock, 
   FileText, 
   TrendingUp, 
-  DollarSign, 
+  IndianRupee, 
   Hash, 
   Trash2,
   ListOrdered
@@ -216,11 +216,11 @@ export default function Purchases({
           darkMode ? 'bg-[#111318] border-white/5' : 'bg-white border-neutral-200'
         }`}>
           <span className="p-3 rounded-lg bg-emerald-500/10 text-emerald-400">
-            <DollarSign className="h-5 w-5" />
+            <IndianRupee className="h-5 w-5" />
           </span>
           <div>
             <p className="text-xs text-neutral-400 font-sans">Total Procurement Outflow</p>
-            <p className="text-xl font-bold font-sans text-emerald-400">${purchaseAnalytics.totalOutflow.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+            <p className="text-xl font-bold font-sans text-emerald-400">₹{purchaseAnalytics.totalOutflow.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
           </div>
         </div>
 
@@ -245,7 +245,7 @@ export default function Purchases({
           <div>
             <p className="text-xs text-neutral-400 font-sans">Primary Outflow Supplier Source</p>
             <p className="text-sm font-bold font-sans truncate w-40">{purchaseAnalytics.topSupplier}</p>
-            <span className="text-[10px] text-neutral-450 font-mono">${purchaseAnalytics.maxOutflowSupplier.toFixed(0)} spent</span>
+            <span className="text-[10px] text-neutral-450 font-mono">₹{purchaseAnalytics.maxOutflowSupplier.toFixed(0)} spent</span>
           </div>
         </div>
 
@@ -295,7 +295,7 @@ export default function Purchases({
               }
               setShowAddPurchaseModal(true);
             }}
-            className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 text-xs font-bold rounded-lg cursor-pointer transition-all shadow-md shadow-emerald-500/10"
+            className="flex items-center gap-2 bg-saffron-600 hover:bg-saffron-700 text-white px-4 py-2 text-xs font-bold rounded-lg cursor-pointer transition-all shadow-md shadow-saffron-500/15"
           >
             <Plus className="h-4 w-4" /> Record Purchase Receipt
           </button>
@@ -371,12 +371,12 @@ export default function Purchases({
 
                       {/* Unit Expense Price */}
                       <td className="py-4 px-4 font-mono">
-                        ${purchase.unitPrice.toFixed(2)} <span className="text-[10px] text-neutral-500">/ u</span>
+                        ₹{purchase.unitPrice.toFixed(2)} <span className="text-[10px] text-neutral-500">/ u</span>
                       </td>
 
                       {/* Total Cost Outflow */}
                       <td className="py-4 px-4 font-bold font-mono text-orange-500 text-sm">
-                        ${purchase.totalCost.toFixed(2)}
+                        ₹{purchase.totalCost.toFixed(2)}
                       </td>
 
                       {/* Status and transition check */}
@@ -476,7 +476,7 @@ export default function Purchases({
 
               {/* Invoice Unit Purchase Cost */}
               <div>
-                <label className="block text-[10px] font-bold uppercase text-neutral-400 mb-1">Wholesale Unit Cost ($)</label>
+                <label className="block text-[10px] font-bold uppercase text-neutral-400 mb-1">Wholesale Unit Cost (₹)</label>
                 <input
                   type="number"
                   step="0.01"
@@ -526,7 +526,7 @@ export default function Purchases({
               <div className="p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/10 flex items-center justify-between font-mono">
                 <span className="text-[10px] text-neutral-400 uppercase font-semibold">Projected Subtotal Cost:</span>
                 <span className="text-sm font-bold text-emerald-400">
-                  ${(Number(purchaseQty) * Number(purchaseUnitPrice)).toFixed(2)}
+                  ₹{(Number(purchaseQty) * Number(purchaseUnitPrice)).toFixed(2)}
                 </span>
               </div>
 
@@ -541,7 +541,7 @@ export default function Purchases({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-lg bg-emerald-500 font-bold text-white shadow-xl cursor-pointer hover:bg-emerald-600 transition-colors"
+                  className="px-4 py-2 rounded-lg bg-saffron-600 font-bold text-white shadow-xl shadow-saffron-500/15 cursor-pointer hover:bg-saffron-700 transition-colors"
                 >
                   Submit Order
                 </button>

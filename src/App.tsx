@@ -370,8 +370,8 @@ export default function App() {
   return (
     <div className={`flex w-screen h-screen overflow-hidden text-sans font-sans ${
       darkMode 
-        ? 'bg-[#0A0B0D] text-slate-300 dark' 
-        : 'bg-neutral-50 text-neutral-800'
+        ? 'bg-charcoal-dark text-slate-200 dark' 
+        : 'bg-[#FAF9F5] text-neutral-800'
     }`}>
       
       {/* Sidebar Core Component navigation */}
@@ -390,7 +390,7 @@ export default function App() {
         
         {/* Top Header Panel bar representing active session data */}
         <header className={`h-16 shrink-0 border-b flex items-center justify-between px-6 transition-all ${
-          darkMode ? 'bg-[#111318] border-white/5' : 'bg-white border-neutral-200'
+          darkMode ? 'bg-charcoal-panel border-white/[0.04]' : 'bg-white border-[#f3ebde]'
         }`}>
           {/* Breadcrumb navigator */}
           <div className="flex items-center gap-1.5 font-sans">
@@ -416,7 +416,7 @@ export default function App() {
             >
               <Bell className="h-4 w-4" />
               {unreadAlertsCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-emerald-500 text-white font-sans text-[8px] font-bold h-3.5 w-3.5 flex items-center justify-center rounded-full border-2 border-inherit animate-pulse">
+                <span className="absolute -top-1 -right-1 bg-saffron-600 text-white font-sans text-[8px] font-bold h-3.5 w-3.5 flex items-center justify-center rounded-full border-2 border-inherit animate-pulse">
                   {unreadAlertsCount}
                 </span>
               )}
@@ -424,9 +424,9 @@ export default function App() {
 
             {/* Simulated Live Connection index */}
             <div className={`hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full border text-[11px] font-mono leading-none ${
-              darkMode ? 'bg-emerald-500/10 border-emerald-500/10 text-emerald-400' : 'bg-green-500/10 border-green-500/10 text-green-600'
+              darkMode ? 'bg-cardamom-500/10 border-cardamom-500/20 text-cardamom-400' : 'bg-cardamom-50/50 border-cardamom-500/20 text-cardamom-700'
             }`}>
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="h-1.5 w-1.5 rounded-full bg-cardamom-500 animate-pulse" />
               <span>System Active</span>
             </div>
 

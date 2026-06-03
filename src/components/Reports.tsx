@@ -12,7 +12,7 @@ import {
   Printer, 
   TableProperties, 
   HeartHandshake,
-  DollarSign,
+  IndianRupee,
   PieChart
 } from 'lucide-react';
 import { Category, InventoryItem, Recipe, WastageLog, PurchaseLog, ConsumptionLog } from '../types';
@@ -89,7 +89,7 @@ export default function Reports({
           onClick={() => setActiveReportTab('analytics')}
           className={`pb-3 text-xs font-semibold tracking-wide border-b-2 transition-all flex items-center gap-1.5 cursor-pointer ${
             activeReportTab === 'analytics'
-              ? 'border-emerald-500 text-emerald-400 font-bold'
+              ? 'border-saffron-600 text-saffron-500 font-bold'
               : 'border-transparent text-neutral-450 hover:text-neutral-300'
           }`}
         >
@@ -100,7 +100,7 @@ export default function Reports({
           onClick={() => setActiveReportTab('schema')}
           className={`pb-3 text-xs font-semibold tracking-wide border-b-2 transition-all flex items-center gap-1.5 cursor-pointer ${
             activeReportTab === 'schema'
-              ? 'border-emerald-500 text-emerald-400 font-bold'
+              ? 'border-saffron-600 text-saffron-500 font-bold'
               : 'border-transparent text-neutral-450 hover:text-neutral-300'
           }`}
         >
@@ -111,7 +111,7 @@ export default function Reports({
           onClick={() => setActiveReportTab('api')}
           className={`pb-3 text-xs font-semibold tracking-wide border-b-2 transition-all flex items-center gap-1.5 cursor-pointer ${
             activeReportTab === 'api'
-              ? 'border-emerald-500 text-emerald-400 font-bold'
+              ? 'border-saffron-600 text-saffron-500 font-bold'
               : 'border-transparent text-neutral-450 hover:text-neutral-300'
           }`}
         >
@@ -145,7 +145,7 @@ export default function Reports({
                   </div>
                   <button 
                     onClick={() => handleSimulatedDownload('inventory')}
-                    className="flex items-center gap-1.5 bg-emerald-500 px-3 py-1.5 text-[11px] text-white rounded font-bold hover:bg-emerald-600 transition-colors shadow cursor-pointer animate-pulse"
+                    className="flex items-center gap-1.5 bg-saffron-600 px-3 py-1.5 text-[11px] text-white rounded font-bold hover:bg-saffron-700 transition-colors shadow shadow-saffron-500/15 cursor-pointer animate-pulse"
                   >
                     <Download className="h-3 w-3" /> Export CSV
                   </button>
@@ -161,7 +161,7 @@ export default function Reports({
                   </div>
                   <button 
                     onClick={() => handleSimulatedDownload('invoices')}
-                    className="flex items-center gap-1.5 bg-emerald-500 px-3 py-1.5 text-[11px] text-white rounded font-bold hover:bg-emerald-600 transition-colors shadow cursor-pointer"
+                    className="flex items-center gap-1.5 bg-saffron-600 px-3 py-1.5 text-[11px] text-white rounded font-bold hover:bg-saffron-700 transition-colors shadow shadow-saffron-500/15 cursor-pointer"
                   >
                     <Download className="h-3 w-3" /> Export CSV
                   </button>
@@ -177,7 +177,7 @@ export default function Reports({
                   </div>
                   <button 
                     onClick={() => handleSimulatedDownload('wastage')}
-                    className="flex items-center gap-1.5 bg-emerald-500 px-3 py-1.5 text-[11px] text-white rounded font-bold hover:bg-emerald-600 transition-colors shadow cursor-pointer"
+                    className="flex items-center gap-1.5 bg-saffron-600 px-3 py-1.5 text-[11px] text-white rounded font-bold hover:bg-saffron-700 transition-colors shadow shadow-saffron-500/15 cursor-pointer"
                   >
                     <Download className="h-3 w-3" /> Export CSV
                   </button>
@@ -208,12 +208,12 @@ export default function Reports({
                         <span className="font-mono text-neutral-500 text-[11px]">#{index+1}</span>
                         <div>
                           <strong className="block text-neutral-200 dark:text-neutral-100">{rec.name}</strong>
-                          <span className="block text-[10px] text-neutral-400">Plates Sale: ${rec.salePrice.toFixed(1)}</span>
+                          <span className="block text-[10px] text-neutral-400">Plates Sale: ₹{rec.salePrice.toFixed(1)}</span>
                         </div>
                       </div>
                       
                       <div className="text-right font-mono font-bold text-green-500 flex flex-col gap-0.5">
-                        <span>+${rec.profitMargin.toFixed(2)}</span>
+                        <span>+₹{rec.profitMargin.toFixed(2)}</span>
                         <span className="text-[10px] text-neutral-400 font-normal">({rec.profitPct.toFixed(0)}% gross)</span>
                       </div>
                     </div>

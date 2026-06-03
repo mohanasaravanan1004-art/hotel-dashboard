@@ -438,7 +438,7 @@ export default function Inventory({
 
                           {/* Unit average cost */}
                           <td className="py-4 px-4 font-bold font-mono">
-                            ${item.averagePrice.toFixed(2)} <span className="text-[10px] text-neutral-400 font-sans font-normal">/ {item.unit}</span>
+                            ₹{item.averagePrice.toFixed(2)} <span className="text-[10px] text-neutral-400 font-sans font-normal">/ {item.unit}</span>
                           </td>
 
                           {/* Reorder Threshold alert info */}
@@ -544,7 +544,7 @@ export default function Inventory({
 
                 <div className="mt-5 pt-4 border-t border-dashed border-neutral-700/30 flex items-center justify-between text-xs font-mono">
                   <span className="text-neutral-400">Linked Items: <strong>{itemCount}</strong></span>
-                  <span className="text-green-500 font-bold">Value: ${assetValue.toFixed(2)}</span>
+                  <span className="text-green-500 font-bold">Value: ₹{assetValue.toFixed(2)}</span>
                 </div>
               </div>
             );
@@ -690,7 +690,7 @@ export default function Inventory({
 
                 {/* Cost per Unit */}
                 <div>
-                  <label className="block text-[10px] font-bold uppercase text-neutral-400 mb-1">Average Unit Price ($)</label>
+                  <label className="block text-[10px] font-bold uppercase text-neutral-400 mb-1">Average Unit Price (₹)</label>
                   <input
                     type="number"
                     step="0.01"

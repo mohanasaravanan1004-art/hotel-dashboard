@@ -4,7 +4,7 @@ import {
   AlertTriangle, 
   UtensilsCrossed, 
   Trash2, 
-  DollarSign, 
+  IndianRupee, 
   CornerDownRight,
   PlusCircle,
   CalendarDays,
@@ -184,7 +184,7 @@ export default function Dashboard({
         id: p.id,
         type: 'purchase',
         title: `Purchase Restock: ${item ? item.name : 'Unknown Item'}`,
-        subtitle: `${p.qty} ${item ? item.unit : ''} at $${p.unitPrice}/u (Invoice: ${p.invoiceNumber})`,
+        subtitle: `${p.qty} ${item ? item.unit : ''} at ₹${p.unitPrice}/u (Invoice: ${p.invoiceNumber})`,
         time: p.purchaseDate,
         cost: p.totalCost
       });
@@ -216,41 +216,43 @@ export default function Dashboard({
     return act.sort((a,b) => new Date(b.time).getTime() - new Date(a.time).getTime()).slice(0, 5);
   }, [purchases, wastage, consumption, inventory, recipes]);
 
-  const COLORS_PIE = ['#10b981', '#059669', '#34d399', '#3b82f6', '#8b5cf6'];
+  const COLORS_PIE = ['#10b981', '#f59e0b', '#ea580c', '#b55307', '#eab308'];
 
   return (
     <div className="space-y-6">
       
       {/* Tamil Nadu Cuisine Spotlight Banner */}
-      <div className={`p-6 rounded-2xl border relative overflow-hidden ${
-        darkMode ? 'bg-gradient-to-r from-emerald-950/20 to-teal-950/10 border-emerald-500/15' : 'bg-emerald-50/40 border-emerald-200'
+      <div className={`p-6 rounded-2xl border relative overflow-hidden transition-all ${
+        darkMode 
+          ? 'bg-gradient-to-tr from-[#121c15] via-charcoal-panel to-[#1e150f] border-saffron-500/15' 
+          : 'bg-gradient-to-tr from-[#faf6ef] to-[#f4ebe1] border-saffron-500/15'
       }`}>
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="space-y-1 z-10">
+          <div className="space-y-1.5 z-10">
             <div className="flex items-center gap-2">
               <span className="text-xl">🍛</span>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[#10b981] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 font-mono">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-saffron-600 dark:text-saffron-500 bg-saffron-500/10 px-2.5 py-1 rounded border border-saffron-500/20 font-mono">
                 தமிழ்நாடு உணவு • Tamil Nadu Cuisine
               </span>
             </div>
-            <h2 className="text-lg font-bold font-sans tracking-tight text-neutral-100 dark:text-neutral-950">
+            <h2 className="text-lg font-bold font-sans tracking-tight text-neutral-800 dark:text-white">
               Tamil Nadu Specialty Menu Activated
             </h2>
-            <p className="text-xs text-neutral-400 dark:text-neutral-700 max-w-2xl">
+            <p className="text-xs text-neutral-600 dark:text-slate-300 max-w-2xl">
               South Indian menu presets (Chettinad Chicken, Sambar & Rice, Masala Dosa) are fully integrated. Track raw quantities of milled Sona Masuri, high-grade Urad Dal, curry leaves, and coconut oil directly in the digital ledger.
             </p>
           </div>
           <div className="flex flex-wrap gap-2 shrink-0 z-10">
             <button 
               onClick={() => setCurrentTab('recipes')}
-              className="text-xs font-bold px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white transition-all shadow-md shadow-emerald-500/10 cursor-pointer flex items-center gap-1"
+              className="text-xs font-bold px-3.5 py-2 rounded-xl bg-saffron-600 hover:bg-saffron-700 text-white transition-all shadow-md shadow-saffron-500/15 cursor-pointer flex items-center gap-1"
             >
               <span>View Tamil Nadu Recipes</span>
               <ChevronRight className="h-3 w-3" />
             </button>
             <button 
               onClick={() => setCurrentTab('inventory')}
-              className="text-xs font-bold px-3.5 py-2 rounded-xl bg-white/5 border border-white/5 dark:border-neutral-200/20 text-neutral-300 dark:text-neutral-700 hover:bg-white/10 dark:hover:bg-neutral-100 transition-all cursor-pointer"
+              className="text-xs font-bold px-3.5 py-2 rounded-xl bg-white/5 border border-white/5 dark:border-white/10 text-neutral-700 dark:text-neutral-300 hover:bg-white/10 dark:hover:bg-white/10 transition-all cursor-pointer"
             >
               Check Ingredients
             </button>
@@ -258,7 +260,7 @@ export default function Dashboard({
         </div>
 
         {/* Dynamic inventory monitoring for South Indian specialty raw commodities */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-dashed border-emerald-500/15">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-dashed border-saffron-500/15">
           {[
             { name: 'Sona Masuri', type: 'Rice Grain Base', id: 'item-tn-1' },
             { name: 'Chettinad Masala', type: 'Specialty Blend', id: 'item-tn-4' },
@@ -267,15 +269,15 @@ export default function Dashboard({
           ].map(spec => {
             const matched = inventory.find(item => item.id === spec.id);
             return (
-              <div key={spec.id} className={`p-3 rounded-xl border ${darkMode ? 'bg-black/30 border-white/5' : 'bg-neutral-50 border-neutral-200'}`}>
+              <div key={spec.id} className={`p-3 rounded-xl border ${darkMode ? 'bg-black/30 border-white/5' : 'bg-white/40 border-saffron-100'}`}>
                 <div className="flex justify-between items-start">
                   <span className="text-[10px] text-neutral-400 dark:text-neutral-500 font-mono block">{spec.type}</span>
                   {matched && matched.stockQty <= matched.reorderLevel && (
                     <span className="h-1.5 w-1.5 bg-rose-500 rounded-full animate-pulse" title="Needs Reorder" />
                   )}
                 </div>
-                <p className="text-xs font-bold font-sans mt-0.5 text-neutral-200 dark:text-neutral-800">{spec.name}</p>
-                <p className="text-xs font-mono font-bold text-emerald-400 mt-1">
+                <p className="text-xs font-bold font-sans mt-0.5 text-neutral-850 dark:text-neutral-200">{spec.name}</p>
+                <p className="text-xs font-mono font-bold text-cardamom-600 dark:text-cardamom-500 mt-1">
                   {matched ? `${matched.stockQty} ${matched.unit}` : '0 kg'}
                 </p>
               </div>
@@ -316,14 +318,14 @@ export default function Dashboard({
           darkMode ? 'bg-[#111318] border-white/5' : 'bg-white border-neutral-200'
         }`}>
           <div className="flex items-center justify-between">
-            <span className="text-xs font-sans text-neutral-400 font-medium">Today's Inventory Val</span>
+            <span className="text-xs font-sans text-neutral-400 font-medium font-semibold">Today's Inventory Val</span>
             <span className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
-              <DollarSign className="h-4 w-4" />
+              <IndianRupee className="h-4 w-4" />
             </span>
           </div>
           <div className="mt-4">
             <p className="text-2xl font-bold tracking-tight font-sans">
-              ${metrics.inventoryValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              ₹{metrics.inventoryValue.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
             <p className="text-[11px] text-green-500 flex items-center gap-1 mt-1 font-mono">
               <TrendingUp className="h-3 w-3 inline" /> +3.4% vs last Monday
@@ -356,14 +358,14 @@ export default function Dashboard({
           darkMode ? 'bg-[#111318] border-[#ffffff]/5' : 'bg-white border-neutral-200'
         }`}>
           <div className="flex items-center justify-between">
-            <span className="text-xs font-sans text-neutral-400 font-medium">Daily Wastage Drag</span>
+            <span className="text-xs font-sans text-neutral-400 font-medium font-semibold">Daily Wastage Drag</span>
             <span className="p-2 rounded-lg bg-purple-500/10 text-purple-500">
               <Trash2 className="h-4 w-4" />
             </span>
           </div>
           <div className="mt-4">
             <p className="text-2xl font-bold tracking-tight font-sans">
-              ${metrics.dailyWastage.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+              ₹{metrics.dailyWastage.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
             </p>
             <p className="text-[11px] text-purple-500 flex items-center gap-1 mt-1 font-mono">
               ~{Math.min(100, (metrics.dailyWastage / (metrics.inventoryValue || 1) * 100)).toFixed(1)}% of inventory value
@@ -419,16 +421,16 @@ export default function Dashboard({
                     <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
                   </linearGradient>
                   <linearGradient id="colorExpenses" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.15}/>
-                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.15}/>
+                    <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
                 <XAxis dataKey="label" stroke="#888888" fontSize={11} tickLine={false} axisLine={false} />
                 <YAxis stroke="#888888" fontSize={11} tickLine={false} axisLine={false} />
-                <Tooltip contentStyle={{ background: darkMode ? '#111318' : '#ffffff', border: darkMode ? '1px solid rgba(255,255,255,0.05)' : '1px solid #e5e7eb', borderRadius: 8 }} />
+                <Tooltip contentStyle={{ background: darkMode ? '#101217' : '#ffffff', border: darkMode ? '1px solid rgba(255,255,255,0.05)' : '1px solid #e5e7eb', borderRadius: 8 }} />
                 <Legend iconSize={10} verticalAlign="top" height={36} />
                 <Area type="monotone" dataKey="Sales" stroke="#10b981" strokeWidth={2} fillOpacity={1} fill="url(#colorSales)" />
-                <Area type="monotone" dataKey="Expenses" stroke="#3b82f6" strokeWidth={1.5} fillOpacity={1} fill="url(#colorExpenses)" />
+                <Area type="monotone" dataKey="Expenses" stroke="#f59e0b" strokeWidth={1.5} fillOpacity={1} fill="url(#colorExpenses)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -460,29 +462,29 @@ export default function Dashboard({
                       <Cell key={`cell-${index}`} fill={COLORS_PIE[index % COLORS_PIE.length]} />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(value) => `$${value}`} />
-                </PieChart>
-              </ResponsiveContainer>
-            )}
-            
-            {/* Center annotation */}
-            <div className="absolute text-center mt-[-15px]">
-              <span className="block text-[10px] uppercase font-semibold text-neutral-400">Total Asset</span>
-              <span className="block text-lg font-bold font-mono">${metrics.inventoryValue.toFixed(0)}</span>
-            </div>
-          </div>
-
-          {/* Custom Legends list */}
-          <div className="space-y-1.5 overflow-y-auto max-h-32 mt-1">
-            {categoryChartData.map((data, index) => (
-              <div key={data.name} className="flex items-center justify-between text-xs font-sans">
-                <div className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full" style={{ backgroundColor: COLORS_PIE[index % COLORS_PIE.length] }} />
-                  <span className="text-neutral-400">{data.name} ({data.itemsCount} items)</span>
-                </div>
-                <span className="font-bold font-mono">${data.value.toLocaleString()}</span>
-              </div>
-            ))}
+                   <Tooltip formatter={(value) => `₹${value}`} />
+                 </PieChart>
+               </ResponsiveContainer>
+             )}
+             
+             {/* Center annotation */}
+             <div className="absolute text-center mt-[-15px]">
+               <span className="block text-[10px] uppercase font-semibold text-neutral-400">Total Asset</span>
+               <span className="block text-lg font-bold font-mono">₹{metrics.inventoryValue.toFixed(0)}</span>
+             </div>
+           </div>
+ 
+           {/* Custom Legends list */}
+           <div className="space-y-1.5 overflow-y-auto max-h-32 mt-1">
+             {categoryChartData.map((data, index) => (
+               <div key={data.name} className="flex items-center justify-between text-xs font-sans">
+                 <div className="flex items-center gap-1.5">
+                   <span className="h-2 w-2 rounded-full" style={{ backgroundColor: COLORS_PIE[index % COLORS_PIE.length] }} />
+                   <span className="text-neutral-400">{data.name} ({data.itemsCount} items)</span>
+                 </div>
+                 <span className="font-bold font-mono">₹{data.value.toLocaleString('en-IN')}</span>
+               </div>
+             ))}
           </div>
         </div>
 
@@ -543,9 +545,9 @@ export default function Dashboard({
                 </div>
                 
                 <div className="border-t border-dashed border-neutral-700/50 pt-3 space-y-1.5">
-                  <div className="flex items-center justify-between text-xs">
+                  <div className="flex items-center justify-between text-xs font-sans">
                     <span className="text-neutral-400 font-semibold">Total Wastage Drag:</span>
-                    <span className="font-bold text-purple-500 font-mono">${metrics.dailyWastage.toFixed(2)}</span>
+                    <span className="font-bold text-purple-500 font-mono">₹{metrics.dailyWastage.toFixed(2)}</span>
                   </div>
                   <div className="text-[10px] text-neutral-400">
                     *Tip: Setting dynamic safe reorders on seafood diminishes storage spoilage by up to 25%.
@@ -597,7 +599,7 @@ export default function Dashboard({
                     
                     {act.cost !== undefined && (
                       <span className="inline-block mt-1 font-mono font-bold text-[10px] px-1.5 py-0.5 rounded bg-neutral-500/10 text-neutral-400">
-                        Value Impact: ${act.cost.toFixed(2)}
+                        Value Impact: ₹{act.cost.toFixed(2)}
                       </span>
                     )}
 

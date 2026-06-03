@@ -88,7 +88,7 @@ export default function Notifications({
       }`}>
         <div>
           <h3 className="font-sans font-bold text-base mb-1 flex items-center gap-2">
-            <Bell className="h-5 w-5 text-emerald-400 animate-swing" /> Operations Automation Alert Core
+            <Bell className="h-5 w-5 text-saffron-550 animate-swing" /> Operations Automation Alert Core
           </h3>
           <p className="text-xs text-neutral-450">Simulates automatic systems scheduling summaries for easy monitoring.</p>
         </div>
@@ -99,14 +99,14 @@ export default function Notifications({
             onClick={triggerDailySummarySim}
             className="flex items-center gap-1 bg-neutral-500/10 hover:bg-neutral-500/20 text-neutral-350 border border-neutral-700/50 px-3 py-1.5 rounded-lg cursor-pointer transition-colors font-sans"
           >
-            <PlusCircle className="h-3.5 w-3.5 text-emerald-400" /> Trigger Daily Summary
+            <PlusCircle className="h-3.5 w-3.5 text-saffron-500" /> Trigger Daily Summary
           </button>
           
           <button
             onClick={triggerWeeklySummarySim}
             className="flex items-center gap-1 bg-neutral-500/10 hover:bg-neutral-500/20 text-neutral-350 border border-neutral-700/50 px-3 py-1.5 rounded-lg cursor-pointer transition-colors font-sans"
           >
-            <PlusCircle className="h-3.5 w-3.5 text-emerald-400" /> Trigger Weekly Digest
+            <PlusCircle className="h-3.5 w-3.5 text-saffron-500" /> Trigger Weekly Digest
           </button>
         </div>
       </div>
@@ -118,8 +118,8 @@ export default function Notifications({
             onClick={() => setActiveFilter('All')}
             className={`px-3 py-1.5 rounded-lg border cursor-pointer font-bold transition-all ${
               activeFilter === 'All'
-                ? 'bg-emerald-500 text-white border-emerald-500 shadow-md'
-                : darkMode ? 'bg-[#111318] border-white/5 text-slate-450 hover:bg-white/5' : 'bg-white border-neutral-200 text-neutral-600'
+                ? 'bg-saffron-600 text-white border-saffron-600 shadow-md shadow-saffron-500/15'
+                : darkMode ? 'bg-charcoal-panel border-white/[0.04] text-slate-450 hover:bg-white/5' : 'bg-white border-[#f3ebde] text-neutral-600'
             }`}
           >
             All Messages ({notifications.length})
@@ -128,8 +128,8 @@ export default function Notifications({
             onClick={() => setActiveFilter('Unread')}
             className={`px-3 py-1.5 rounded-lg border cursor-pointer font-bold transition-all ${
               activeFilter === 'Unread'
-                ? 'bg-emerald-500 text-white border-emerald-500 shadow-md'
-                : darkMode ? 'bg-[#111318] border-white/5 text-slate-455 hover:bg-white/5' : 'bg-white border-neutral-200 text-neutral-600'
+                ? 'bg-saffron-600 text-white border-saffron-600 shadow-md shadow-saffron-500/15'
+                : darkMode ? 'bg-charcoal-panel border-white/[0.04] text-slate-455 hover:bg-white/5' : 'bg-white border-[#f3ebde] text-neutral-600'
             }`}
           >
             Unread ({notifications.filter(n => !n.isRead).length})
@@ -204,7 +204,7 @@ export default function Notifications({
                   {isUnread && (
                     <button
                       onClick={() => handleMarkAsRead(notif.id)}
-                      className="p-1 px-2 text-[10px] bg-emerald-500 text-white rounded font-bold hover:bg-emerald-600 transition-colors cursor-pointer shadow-sm animate-pulse"
+                      className="p-1 px-2 text-[10px] bg-saffron-600 text-white rounded font-bold hover:bg-saffron-700 transition-colors cursor-pointer shadow-sm shadow-saffron-500/15 animate-pulse"
                       title="Mark as read"
                     >
                       Verify Alert

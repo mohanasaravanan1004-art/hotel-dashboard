@@ -147,7 +147,7 @@ export default function Consumption({
             }
             setShowAddLogModal(true);
           }}
-          className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 text-xs font-bold rounded-lg cursor-pointer transition-all shadow-md shadow-emerald-500/10"
+          className="flex items-center gap-2 bg-saffron-600 hover:bg-saffron-700 text-white px-4 py-2 text-xs font-bold rounded-lg cursor-pointer transition-all shadow-md shadow-saffron-500/15"
         >
           <Plus className="h-4 w-4" /> Log Daily Consumption
         </button>
@@ -169,19 +169,19 @@ export default function Consumption({
               <div 
                 key={log.id}
                 className={`p-5 rounded-xl border flex flex-col justify-between hover:shadow-md transition-all ${
-                  darkMode ? 'bg-[#111318] border-white/5' : 'bg-white border-neutral-200'
+                  darkMode ? 'bg-charcoal-panel border-white/[0.04]' : 'bg-white border-[#f3ebde]'
                 }`}
               >
                 {/* Metas overview */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-dashed border-neutral-700/30">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-dashed border-[#f3ebde] dark:border-white/[0.04]">
                   <div className="flex gap-2 items-center">
-                    <span className="p-2 rounded bg-emerald-500/10 text-emerald-400">
+                    <span className="p-2 rounded bg-cardamom-500/10 text-cardamom-500">
                       <ChefHat className="h-4 w-4" />
                     </span>
                     <div>
                       <h4 className="font-bold text-sm tracking-tight text-neutral-900 dark:text-neutral-100">
                         {matchedRecipe ? matchedRecipe.name : 'Unknown Recipe formulation'} 
-                        <span className="text-emerald-400 text-xs ml-1 bg-emerald-500/10 px-2 py-0.5 rounded font-mono font-extrabold uppercase border border-white/5">
+                        <span className="text-cardamom-650 text-xs ml-1 bg-cardamom-500/10 px-2 py-0.5 rounded font-mono font-extrabold uppercase border border-cardamom-500/10">
                           x{log.multiplier} portions cooked
                         </span>
                       </h4>
@@ -357,7 +357,7 @@ export default function Consumption({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-bold cursor-pointer shadow-xl transition-colors"
+                  className="px-4 py-2 rounded-lg bg-saffron-600 hover:bg-saffron-700 text-white font-bold cursor-pointer shadow-xl shadow-saffron-500/15 transition-colors"
                 >
                   Confirm production batch
                 </button>

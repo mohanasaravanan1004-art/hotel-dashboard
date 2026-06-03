@@ -8,6 +8,31 @@
   
   --animate-spin-slow: spin 12s linear infinite;
   --animate-swing: swing 1s ease-in-out infinite;
+
+  /* Custom Indian Heritage Color Schemes */
+  --color-saffron-50: #fffbeb;
+  --color-saffron-100: #fef3c7;
+  --color-saffron-500: #f59e0b;
+  --color-saffron-600: #d97706;
+  --color-saffron-700: #b55307;
+  --color-saffron-900: #78350f;
+
+  --color-cardamom-50: #f0fdf4;
+  --color-cardamom-100: #d1fae5;
+  --color-cardamom-500: #10b981;
+  --color-cardamom-600: #059669;
+  --color-cardamom-700: #047857;
+  --color-cardamom-800: #065f46;
+  --color-cardamom-950: #022c22;
+
+  --color-terracotta-400: #fb923c;
+  --color-terracotta-500: #f97316;
+  --color-terracotta-600: #ea580c;
+  --color-terracotta-700: #c2410c;
+
+  --color-brass-gold: #eab308;
+  --color-charcoal-dark: #07080b;
+  --color-charcoal-panel: #101217;
 }
 
 /* Base custom styles to pair typography */
@@ -17,7 +42,7 @@ h1, h2, h3, h4, h5 {
 
 body {
   font-family: var(--font-sans);
-  background-color: #0A0B0D; /* elegant dark theme background spacing */
+  background-color: #07080b; /* Premium rich wood charcoal */
 }
 
 /* custom scroll bars for a SaaS layout */

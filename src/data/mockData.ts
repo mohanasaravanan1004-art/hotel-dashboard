@@ -183,5 +183,5 @@ export const INITIAL_WASTAGE: WastageLog[] = [
 export const INITIAL_NOTIFICATIONS: AppNotification[] = [
   { id: 'not-1', type: 'Low Stock', title: 'Critical Stock Alert', message: 'Kadalai Maavu (Gram Flour) is critically low (5.5 kg / Reorder level: 25 kg)', timestamp: '2026-06-01T05:00:00Z', isRead: false },
   { id: 'not-2', type: 'Low Stock', title: 'Low Stock Level', message: 'Vanjaram Fish (Seer Fish) dropped below safety reorder level (12 kg)', timestamp: '2026-06-01T09:30:00Z', isRead: false },
-  { id: 'not-3', type: 'Wastage Warning', title: 'High Spoilage Alert', message: '$7.28 wastage logged today (Milk & Tomatoes)', timestamp: '2026-06-01T08:00:00Z', isRead: true },
+  { id: 'not-3', type: 'Wastage Warning', title: 'High Spoilage Alert', message: '₹7.28 wastage logged today (Milk & Tomatoes)', timestamp: '2026-06-01T08:00:00Z', isRead: true },
 ];

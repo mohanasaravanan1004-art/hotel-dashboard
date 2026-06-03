@@ -4,7 +4,7 @@ import {
   Plus, 
   Search, 
   AlertOctagon, 
-  DollarSign, 
+  IndianRupee, 
   MessageSquare, 
   Activity, 
   Calendar,
@@ -143,11 +143,11 @@ export default function Wastage({
           darkMode ? 'bg-[#111318] border-white/5' : 'bg-white border-neutral-200'
         }`}>
           <span className="p-3 rounded-lg bg-rose-500/10 text-rose-500">
-            <DollarSign className="h-5 w-5" />
+            <IndianRupee className="h-5 w-5" />
           </span>
           <div>
             <p className="text-xs text-neutral-400 font-sans">Gross Leak Wastage Loss</p>
-            <p className="text-xl font-bold font-sans text-rose-500">${aggregations.sumTotalLoss.toFixed(2)}</p>
+            <p className="text-xl font-bold font-sans text-rose-500">₹{aggregations.sumTotalLoss.toFixed(2)}</p>
           </div>
         </div>
 
@@ -295,12 +295,12 @@ export default function Wastage({
 
                       {/* Cost margin unit price */}
                       <td className="py-4 px-4 font-mono text-neutral-400">
-                        ${log.unitPrice.toFixed(2)}/u
+                        ₹{log.unitPrice.toFixed(2)}/u
                       </td>
 
                       {/* calculated impact */}
                       <td className="py-4 px-4 font-bold font-mono text-rose-500 text-sm">
-                        ${log.totalLoss.toFixed(2)}
+                        ₹{log.totalLoss.toFixed(2)}
                       </td>
 
                       {/* Reason Category badges */}
@@ -364,7 +364,7 @@ export default function Wastage({
                 {activeItemInModal && (
                   <p className="mt-1 flex items-center justify-between text-[11px] text-neutral-400 font-mono">
                     <span>Base Unit Cost:</span>
-                    <strong>${activeItemInModal.averagePrice.toFixed(2)} / {activeItemInModal.unit}</strong>
+                    <strong>₹{activeItemInModal.averagePrice.toFixed(2)} / {activeItemInModal.unit}</strong>
                   </p>
                 )}
               </div>
@@ -441,9 +441,9 @@ export default function Wastage({
 
               {/* Cost math subtotal warning */}
               <div className="p-3 rounded-lg bg-red-500/5 border border-red-500/10 flex items-center justify-between font-mono">
-                <span className="text-[10px] text-neutral-450 uppercase font-semibold">Projected Spoilage Asset loss:</span>
+                <span className="text-[10px] text-neutral-410 uppercase font-semibold">Projected Spoilage Asset loss:</span>
                 <span className="text-sm font-bold text-red-500">
-                  ${(Number(wastageQty) * (activeItemInModal?.averagePrice || 0)).toFixed(2)}
+                  ₹{(Number(wastageQty) * (activeItemInModal?.averagePrice || 0)).toFixed(2)}
                 </span>
               </div>
 

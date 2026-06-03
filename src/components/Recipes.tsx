@@ -3,7 +3,7 @@ import {
   BookOpen, 
   Plus, 
   Search, 
-  DollarSign, 
+  IndianRupee, 
   Coins, 
   Users, 
   Trash2, 
@@ -171,7 +171,7 @@ export default function Recipes({
         {canMutate ? (
           <button
             onClick={() => setShowAddRecipeModal(true)}
-            className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 text-xs font-bold rounded-lg cursor-pointer transition-all shadow-md shadow-emerald-500/10"
+            className="flex items-center gap-2 bg-saffron-600 hover:bg-saffron-700 text-white px-4 py-2 text-xs font-bold rounded-lg cursor-pointer transition-all shadow-md shadow-saffron-500/15"
           >
             <Plus className="h-4 w-4" /> Formulate Menu Recipe
           </button>
@@ -237,14 +237,14 @@ export default function Recipes({
                     {/* Raw Ingredients Cost */}
                     <div className="text-left w-24">
                       <span className="block text-[10px] text-neutral-400 font-sans">Raw Food Cost</span>
-                      <span className="font-bold text-neutral-300">${ingredientCosts.toFixed(2)}</span>
+                      <span className="font-bold text-neutral-300">₹{ingredientCosts.toFixed(2)}</span>
                     </div>
 
                     {/* Mapped dynamic profit margin */}
                     <div className="text-left w-24">
                       <span className="block text-[10px] text-neutral-400 font-sans">Gross Profit margin</span>
                       <span className={`font-bold ${isCriticalLeak ? 'text-red-500' : isHealthyMargin ? 'text-green-500' : 'text-amber-500'}`}>
-                        ${profitValue.toFixed(2)}
+                        ₹{profitValue.toFixed(2)}
                       </span>
                     </div>
 
@@ -262,7 +262,7 @@ export default function Recipes({
                         <span className="block text-[10px] text-neutral-400 font-sans">Target Menu Price</span>
                         {canMutate ? (
                           <div className="flex items-center gap-1 mt-0.5">
-                            <span className="text-neutral-500">$</span>
+                            <span className="text-neutral-500">₹</span>
                             <input 
                               type="number"
                               step="0.5"
@@ -274,7 +274,7 @@ export default function Recipes({
                             />
                           </div>
                         ) : (
-                          <span className="font-bold text-emerald-400 font-mono">${recipe.salePrice.toFixed(2)}</span>
+                          <span className="font-bold text-emerald-400 font-mono">₹{recipe.salePrice.toFixed(2)}</span>
                         )}
                       </div>
                     </div>
@@ -322,11 +322,11 @@ export default function Recipes({
                             <div>
                               <p className="font-bold font-sans text-neutral-950 dark:text-neutral-100">{matchedItem ? matchedItem.name : 'Unknown Ingredient'}</p>
                               <p className="text-[10px] text-neutral-400 mt-1 font-mono">
-                                Uses: <strong className="text-emerald-400">{ing.requiredQty} {matchedItem?.unit || 'u'}</strong> at ${unitPrice.toFixed(2)}/{matchedItem?.unit || 'u'}
+                                Uses: <strong className="text-emerald-400">{ing.requiredQty} {matchedItem?.unit || 'u'}</strong> at ₹{unitPrice.toFixed(2)}/{matchedItem?.unit || 'u'}
                               </p>
                             </div>
                             <span className="font-mono font-bold text-neutral-300 dark:text-neutral-100">
-                              +${subcost.toFixed(2)}
+                              +₹{subcost.toFixed(2)}
                             </span>
                           </div>
                         );
@@ -390,7 +390,7 @@ export default function Recipes({
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold uppercase text-neutral-400 mb-1">Target Sale Menu Price ($)</label>
+                  <label className="block text-[10px] font-bold uppercase text-neutral-400 mb-1">Target Sale Menu Price (₹)</label>
                   <input
                     type="number"
                     step="0.5"
@@ -474,7 +474,7 @@ export default function Recipes({
 
                         {/* Cost preview indicator */}
                         <span className="w-16 text-right font-mono font-bold text-emerald-400 text-[11px] shrink-0">
-                          +${costOfRow.toFixed(2)}
+                          +₹{costOfRow.toFixed(2)}
                         </span>
 
                         {/* Delete row */}
@@ -496,9 +496,9 @@ export default function Recipes({
               {/* Dynamic summary card for ideal margins */}
               <div className="p-4 rounded-xl border border-emerald-500/10 bg-emerald-500/5 mt-4 flex items-center justify-between font-mono text-xs">
                 <div>
-                  <span className="text-[10px] text-neutral-400 uppercase font-semibold block">Approx Cook Portion Cost:</span>
+                  <span className="text-[10px] text-neutral-450 uppercase font-semibold block">Approx Cook Portion Cost:</span>
                   <span className="text-sm font-bold text-neutral-300">
-                    ${mappedIngredients.reduce((sum, r) => {
+                    ₹{mappedIngredients.reduce((sum, r) => {
                       const mat = inventory.find(i => i.id === r.itemId);
                       return sum + (r.requiredQty * (mat ? mat.averagePrice : 0));
                     }, 0).toFixed(2)}
@@ -526,7 +526,7 @@ export default function Recipes({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-bold cursor-pointer shadow-xl transition-colors"
+                  className="px-4 py-2 rounded-lg bg-saffron-600 hover:bg-saffron-700 text-white font-bold cursor-pointer shadow-xl shadow-saffron-500/15 transition-colors"
                 >
                   Verify & Formulate Dish
                 </button>
